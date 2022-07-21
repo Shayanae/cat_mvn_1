@@ -1,5 +1,8 @@
 package org.sid.web;
 
+
+import javax.validation.Valid;
+
 import org.sid.dao.ProductRepository;
 import org.sid.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +42,16 @@ public class ProductController {
 		return "redirect:/index?page="+page+"&size="+size+"&mc="+mc;
 	}
 	@RequestMapping(value="/form", method = RequestMethod.GET)
-	public String formProduct() {
+	public String formProduct(Model model) {
+		model.addAttribute("product", new Product());
 		return "FormProduct";
+	}
+	@RequestMapping(value="/save",method=RequestMethod.POST)
+	public String save(Model model, @Valid  Product product, 
+			BindingResult bindingResult ) {
+		if(bindingResult.hasErrors())
+			return "FormProduct" ;
+		productRepository.save(product);
+		return "Confirmation";
 	}
 }
