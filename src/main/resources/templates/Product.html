@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
 <head>
 <meta charset="utf-8"/>
 <title>Products</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" 
 	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" 
 	crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{css/style.css}">
 </head>
-<style>
-	.courant{
-	color: #FFFFFF;
-	}
-</style>
 <body>
-	<p></p>
+	<div layout:fragment="content">
 	<div class = "container">
 		<form th:action = "@{index}" method = "get">
 			<label>Mot Clé:</label>
@@ -46,9 +42,10 @@
 	<div class = "container">
 		<ul class = "nav nav-pills">
 			<li th:class = "${pageCourante}==${status.index}?'nav-link active':''" th:each = "page, status:${pages}">
-				<a th:class = "${pageCourante}==${status.index}?'courant':'nav-link'"  th:href = "@{index(page=${status.index}, size = ${size}, mc=${mc})}" th:text = "${status.index}"></a>
+				<a th:class = "${pageCourante}==${status.index}?'white':'nav-link'"  th:href = "@{index(page=${status.index}, size = ${size}, mc=${mc})}" th:text = "${status.index}"></a>
 			</li>
 		</ul>
+	</div>
 	</div>
 </body>
 </html>

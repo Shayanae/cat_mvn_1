@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="utf-8">
-<title>Insert title here</title>
+<meta charset="utf-8"/>
+<title>Gestion des produits</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" 
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" 
+	crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{css/style.css}">
 </head>
 <body>
-
+	<header>
+	<div class="navbar navbar-light">
+		<div class="container-fluid">
+			<ul class="nav navbar-light">
+				<li>
+					<a th:href="@{index}">Chercher</a>
+				</li>
+				<li>
+					<a th:href="@{form}">Produits</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</header>
+	<section layout:fragment="content">
+		
+	</section>
+	<footer class="navbar-fixed-bottom">
+		<hr/>
+		<div class="container">
+			<small>
+				Copyright @2022
+			</small>
+		</div>
+	</footer>
 </body>
 </html>
