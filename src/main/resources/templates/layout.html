@@ -9,22 +9,22 @@
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{css/style.css}">
 </head>
 <body>
-	<header>
-	<div class="navbar navbar-light">
+<header>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<div class="container-fluid">
-			<ul class="nav navbar-light">
-				<li>
-					<a th:href="@{index}">Chercher</a>
+			<ul class ="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a th:href="@{index}" class="nav-item nav-link active">Chercher</a>
 				</li>
-				<li>
-					<a th:href="@{form}">Produits</a>
+				<li class="nav-item">
+					<a th:href="@{form}" class="nav-item nav-link active">Produits</a>
 				</li>
 			</ul>
 		</div>
-	</div>
+	</nav>
 	</header>
 	<section layout:fragment="content">
-		
+	
 	</section>
 	<footer class="navbar-fixed-bottom">
 		<hr/>

@@ -17,7 +17,7 @@ public class Product implements Serializable{
 	@NotNull
 	@Size(min=4, max=15)
 	private String designation;
-	@DecimalMin("100")
+	@DecimalMin("30")
 	private double price;
 	private int amount;
 	
